@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of SEQUENCES OF SUB-SEQUENCES.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and David Shi.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -117,7 +117,7 @@ def multiply_numbers(sequence_of_lists):
        [FYI: This 'can be multiplied ...' is an example of DUCK TYPING.]
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #  ** READ THE TESTS that have been written for you (ABOVE).
     #  ** ASK QUESTIONS if you do not understand the TESTS (ABOVE).
     #
@@ -128,6 +128,10 @@ def multiply_numbers(sequence_of_lists):
     #             to loop through it in the INNER loop.
     #        -- See   m2e_nested_loops_in_sequences   as needed.
     # ------------------------------------------------------------------
+    for j in range(len(sequence_of_lists)):
+        sublist = sequence_of_lists[j]
+        for k in range(len(sublist)):
+            sublist[k] = sublist[k] * (j + 1)
 
 
 def run_test_sum_numbers():
@@ -153,6 +157,10 @@ def run_test_sum_numbers():
     print('Expected and actual are:', expected, answer)
 
     # TO DO 3 (continued): Add your ADDITIONAL test(s) here:
+    # Test 3:
+    expected = 34
+    answer = sum_numbers(([2, 4, 5], [5, 3, 10], [3, 2]))
+    print('Expected and actual are:', expected, answer)
 
 
 def sum_numbers(seq_seq):
@@ -166,9 +174,15 @@ def sum_numbers(seq_seq):
                     and each item in the subsequences is a number.
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
+    sum = 0
+    for i in range(len(seq_seq)):
+        sublist = seq_seq[i]
+        for k in range(len(sublist)):
+            sum = sum + sublist[k]
+    return sum
 
 
 def run_test_print_characters():
@@ -221,6 +235,9 @@ def print_characters(sequence_of_strings):
     #  ** READ THE TESTS that have been written for you (ABOVE).
     #  ** ASK QUESTIONS if you do not understand the TESTS (ABOVE).
     # ------------------------------------------------------------------
+    for i in range(len(sequence_of_strings)):
+        for k in range(len(sequence_of_strings[i])):
+            print(sequence_of_strings[i][k])
 
 
 def run_test_print_characters_slanted():
@@ -277,6 +294,9 @@ def print_characters_slanted(sequence_of_strings):
     # ** HINT: ** Consider using string multiplication for the spaces
     #             and string addition to stitch the spaces to the character.
     # ------------------------------------------------------------------
+    for i in range(len(sequence_of_strings)):
+        for k in range(len(sequence_of_strings[i])):
+            print(" " * k, sequence_of_strings[i][k])
 
 
 # ----------------------------------------------------------------------
